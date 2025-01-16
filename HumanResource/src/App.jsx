@@ -1,16 +1,19 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import EmployeeLogin from "./containers/Employee-login.jsx";
 import EmployeeHome from "./containers/Employee-home.jsx";
 
 function App() {
-  const [login, setLogin] = useState(false);
+    return (
+        <Router>
+            <Routes>
+                {/* صفحه ورود */}
+                <Route path="/" element={<EmployeeLogin />} />
 
-  return (
-    <>{!login ? <EmployeeLogin setLogin={setLogin} /> : <EmployeeHome />}</>
-  );
+                {/* صفحه اصلی */}
+                <Route path="/home" element={<EmployeeHome />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
