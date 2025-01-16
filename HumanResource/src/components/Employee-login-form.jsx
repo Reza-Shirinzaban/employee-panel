@@ -1,88 +1,68 @@
-<<<<<<< HEAD
-const EmployeeLoginForm = ({ login, setLogin }) => {
-  const clickHandler = () => {
-    setLogin(true);
-  };
-
-  return (
-    <form action="">
-=======
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginEmployee } from "../services";
+import { useState } from "react";
 
 const EmployeeLoginForm = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
-  function login(env) {
-    env.preventDefault();
-    if (username.length == 0 || password.length == 0) {
-      return alert("اینپوت ها نمی توانند خالی باشند");
-    }
-    loginEmployee(username, password)
-      .then((result) => {
-        if (result) {
-          alert("ورود با موفقیت انجام شد");
-          navigate("/home");
+    const handleLogin = (env) => {
+        env.preventDefault();
+        if (username.length === 0 || password.length === 0) {
+            return alert("اینپوت ها نمی توانند خالی باشند");
         }
-      })
-      .catch((err) => {
-        alert("نام کاربری و یا رمز عبور اشتباه است");
-      });
-  }
-  return (
-    <form action="" onSubmit={login}>
->>>>>>> 838515e172045664b8d9904e393a2fe91e17e051
-      <div className="flex flex-col">
-        <p className="font-bold text-xl md:pl-[560px] max-md:text-end mt-8">
-          نام کاربری
-        </p>
-        <input
-<<<<<<< HEAD
-=======
-          value={username}
-          onChange={(env) => {
-            setUsername(env.target.value);
-          }}
->>>>>>> 838515e172045664b8d9904e393a2fe91e17e051
-          type="text"
-          placeholder="@username"
-          className="mt-4 md:h-16 max-md:w-[326px] max-md:h-12 ml-20 pl-6 rounded-xl bg-[#EAEAEA]"
-        />
-        <p className="font-bold text-xl md:pl-[560px]  max-md:text-end mt-8">
-          رمز عبور
-        </p>
-        <input
-<<<<<<< HEAD
-=======
-          value={password}
-          onChange={(env) => {
-            setPassword(env.target.value);
-          }}
->>>>>>> 838515e172045664b8d9904e393a2fe91e17e051
-          type="password"
-          placeholder="password"
-          className="mt-4 md:h-16 max-md:w-[326px] max-md:h-12 ml-20 pl-6 rounded-xl  bg-[#EAEAEA]"
-        />
-        <button
-          className="md:w-[187px] md:h-[58px] bg-[#C09015] rounded-[35px] mt-8 ml-20 text-white text-2xl pb-2"
-          type="submit"
-<<<<<<< HEAD
-          onClick={clickHandler}
-=======
->>>>>>> 838515e172045664b8d9904e393a2fe91e17e051
-        >
-          ورود
-        </button>
-      </div>
-    </form>
-  );
+        // فرض کنید تابع loginEmployee در اینجا استفاده می‌شود
+        // loginEmployee(username, password).then(() => {
+        // setLogin(true);
+        // به محض ورود موفقیت‌آمیز، وضعیت ورود را تغییر دهید
+        alert("ورود با موفقیت انجام شد");
+        // }).catch(() => {
+        //   alert("نام کاربری یا رمز عبور اشتباه است");
+        // });
+    };
+
+
+    const navigate = useNavigate(); // برای هدایت به مسیرهای دیگر
+
+    const nextPage = () => {
+        // اینجا می‌توانید منطق ورود را اضافه کنید.
+        // اگر ورود موفق بود، کاربر را به مسیر "/home" هدایت کنید.
+        navigate("/home");
+    };
+    return (
+        <form onSubmit={handleLogin} className="d-flex justify-center">
+            <div className="w-full p-10">
+                <div className="grid items-center justify-items-end w-full">
+                    <p className="font-bold text-xl mt-8">نام کاربری</p>
+                    <input
+                        value={username}
+                        onChange={(env) => setUsername(env.target.value)}
+                        type="text"
+                        placeholder="@username"
+                        className="mt-4 h-16 p-5 rounded-xl bg-[#EAEAEA] w-full"
+                    />
+                </div>
+                <div className="grid items-center justify-items-end w-full">
+                    <p className="font-bold text-xl mt-8">رمز عبور</p>
+                    <input
+                        value={password}
+                        onChange={(env) => setPassword(env.target.value)}
+                        type="password"
+                        placeholder="password"
+                        className="mt-4 h-16 p-5 rounded-xl bg-[#EAEAEA] w-full"
+                    />
+                    <div className="grid items-center justify-items-start w-full">
+                        <button
+                            className="mt-8 bg-[#C09015] rounded-[35px] text-white text-2xl w-full h-10 sm:w-60"
+                            onClick={nextPage}
+                            type="submit"
+                        >
+                            ورود
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    );
 };
 
 export default EmployeeLoginForm;
-
-//width: 187px;
-// height: 58px;
-// flex-shrink: 0;
