@@ -3,11 +3,10 @@ import { faUser} from '@fortawesome/free-regular-svg-icons'
 const EmployeeNav = ()=> {
     return(
         <>
-            <div className='w-full h-[82px] bg-[#C09015] flex shadow-gray-500 shadow-md'>
-
+            <div className='w-full h-[85px] bg-[#C09015] flex shadow-md relative z-10' style={{ boxShadow: 'rgb(0 0 0 / 30%) 0px 0px 14px' }}>
                 <div className='flex items-center'>
                     <svg className='ml-12 cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="13" height="9" viewBox="0 0 13 9" fill="none">
-                        <path d="M11 7C11 7 6.875 2 6.5 2C6.125 2 2 7 2 7" stroke="#D5B666" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M11 7C11 7 6.875 2 6.5 2C6.125 2 2 7 2 7" stroke="#D5B666" strokeWidth="3" strokeLinecap="round"/>
                     </svg>
                     <div className='flex ml-24 items-center'>
                         <p className='text-white text-xl'>نام کاربر</p>
@@ -31,5 +30,3 @@ const EmployeeNav = ()=> {
     )
 }
 export default EmployeeNav;
-
-//(212, 182, 102, 0.30);
